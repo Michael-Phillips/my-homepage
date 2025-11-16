@@ -1,8 +1,8 @@
-/* calendar.css - Mobile-optimized - v1.2 - 2024-11-16 */
+/* calendar.css - Mobile-optimized - v1.3 - 2024-11-16 */
 
 .calendar-container {
   padding: 10px;
-  padding-bottom: 120px; /* INCREASED: More space at bottom for mobile */
+  padding-bottom: 200px; /* INCREASED: Much more space at bottom */
   max-width: 1200px;
   margin: 0 auto;
 }
@@ -313,7 +313,7 @@
 @media (max-width: 768px) {
   .calendar-container {
     padding: 5px;
-    padding-bottom: 150px; /* INCREASED: Even more space at bottom for mobile */
+    padding-bottom: 250px; /* INCREASED: Much more space for mobile browsers */
   }
 
   .calendar-header h2 {
@@ -362,7 +362,7 @@
 /* Very small screens (iPhone SE, etc) */
 @media (max-width: 375px) {
   .calendar-container {
-    padding-bottom: 180px; /* INCREASED: Maximum space for very small screens */
+    padding-bottom: 300px; /* INCREASED: Maximum space for very small screens */
   }
 
   .calendar-controls button {
