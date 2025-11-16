@@ -1,4 +1,4 @@
-// App.jsx - v1.1 - 2024-11-16
+// App.jsx - v1.2 - 2024-11-16
 import { useState } from 'react';
 import Sensors from './pages/Sensors';
 import Calendar from './pages/Calendar';
@@ -33,8 +33,10 @@ function App() {
       </header>
       <main style={{ 
         padding: tab === 'Sensors' ? 0 : '1rem',
-        paddingBottom: '80px',  // ADDED: Space at bottom so last items are accessible
-        flex: 1
+        paddingBottom: tab === 'Calendar' ? '120px' : '80px',  // CHANGED: More padding for Calendar
+        flex: 1,
+        overflowY: 'auto',  // ADDED: Explicitly allow vertical scrolling
+        WebkitOverflowScrolling: 'touch'  // ADDED: Smooth scrolling on iOS
         // REMOVED: overflow: 'hidden' and height: 0
       }}>
         {tab === 'Sensors' && <Sensors />}
