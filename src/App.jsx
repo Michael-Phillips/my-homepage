@@ -1,3 +1,4 @@
+// App.jsx - v1.1 - 2024-11-16
 import { useState } from 'react';
 import Sensors from './pages/Sensors';
 import Calendar from './pages/Calendar';
@@ -5,34 +6,36 @@ import MealMenu from './pages/MealMenu';
 
 function App() {
   const [tab, setTab] = useState('Sensors');
-
+  
   return (
     <div style={{ 
       margin: 0, 
       padding: 0, 
-      height: '100vh', 
+      minHeight: '100vh',  // CHANGED: from height to minHeight
       display: 'flex', 
-      flexDirection: 'column',
-      overflow: 'hidden'  // Prevent page scrolling
+      flexDirection: 'column'
+      // REMOVED: overflow: 'hidden' - this was preventing scrolling
     }}>
       <header style={{ 
         padding: '1rem', 
         backgroundColor: '#f0f0f0',
-        flexShrink: 0  // Prevent header from shrinking
+        flexShrink: 0,  // Prevent header from shrinking
+        position: 'sticky',  // ADDED: Makes header stick to top while scrolling
+        top: 0,  // ADDED: Stick to top
+        zIndex: 100  // ADDED: Ensure header stays above content
       }}>
         <h1 style={{ margin: 0 }}>My Homepage</h1>
-        <nav style={{ display: 'flex', gap: '1rem', marginTop: '1rem' }}>
+        <nav style={{ display: 'flex', gap: '1rem', marginTop: '1rem', justifyContent: 'center' }}>
           <button onClick={() => setTab('Sensors')}>Sensors</button>
           <button onClick={() => setTab('Calendar')}>Calendar</button>
           <button onClick={() => setTab('MealMenu')}>Meal Menu</button>
         </nav>
       </header>
-
       <main style={{ 
         padding: tab === 'Sensors' ? 0 : '1rem',
-        flex: 1,
-        overflow: 'hidden',
-        height: 0  // Important: Forces flex child to respect parent height
+        paddingBottom: '80px',  // ADDED: Space at bottom so last items are accessible
+        flex: 1
+        // REMOVED: overflow: 'hidden' and height: 0
       }}>
         {tab === 'Sensors' && <Sensors />}
         {tab === 'Calendar' && <Calendar />}
@@ -43,4 +46,3 @@ function App() {
 }
 
 export default App;
-
